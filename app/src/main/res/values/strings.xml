@@ -3,4 +3,5 @@
     <string name="add">Add</string>
     <string name="hint">Enter text</string>
     <string name="text">Text</string>
+    <string name="sample_task">Sample Task</string>
 </resources>
