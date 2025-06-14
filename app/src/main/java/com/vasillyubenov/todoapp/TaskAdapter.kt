@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class TaskAdapter (private val taskList: List<Task>) :
+class TaskAdapter (private val taskList: MutableList<Task>) :
     RecyclerView.Adapter<TaskAdapter.TaskViewHolder>() {
 
     class TaskViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -22,6 +22,11 @@ class TaskAdapter (private val taskList: List<Task>) :
     override fun onBindViewHolder(holder: TaskViewHolder, position: Int) {
         val task = taskList[position]
         holder.taskTitle.text = task.title
+
+        holder.itemView.setOnClickListener {
+            taskList.removeAt(position)
+            notifyItemRemoved(position)
+        }
     }
 
     override fun getItemCount(): Int = taskList.size

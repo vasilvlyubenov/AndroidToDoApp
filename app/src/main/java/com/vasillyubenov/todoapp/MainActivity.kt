@@ -30,6 +30,8 @@ class MainActivity : AppCompatActivity() {
                 val task = Task(taskText)
                 taskList.add(task)
                 taskInput.text.clear()
+                taskAdapter.notifyItemInserted(taskList.size - 1)
+                recyclerView.scrollToPosition(taskList.size - 1)
             } else {
                 Toast.makeText(this, "Please enter a task", Toast.LENGTH_SHORT).show()
             }
