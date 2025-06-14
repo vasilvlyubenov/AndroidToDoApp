@@ -11,6 +11,6 @@
         android:layout_height="wrap_content"
         android:text="@string/sample_task"
         android:textSize="16sp"
-        android:textColor="@color/black"/>
+        android:textColor="@color/purple_200"/>
 
 </LinearLayout>

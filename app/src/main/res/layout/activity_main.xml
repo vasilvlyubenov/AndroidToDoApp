@@ -23,7 +23,8 @@
             android:hint="@string/hint"
             android:inputType="text"
             android:minHeight="48dp"
-            android:text="@string/text" />
+            android:text="@string/text"
+            android:textColor="@color/purple_200" />
 
         <Button
             android:id="@+id/addButton"
