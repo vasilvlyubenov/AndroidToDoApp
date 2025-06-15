@@ -4,16 +4,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.CheckBox
+import android.widget.ImageButton
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 class TaskAdapter (private val taskList: MutableList<Task>,
-                   private val saveTasks: () -> Unit) :
+                   private val saveTasks: () -> Unit,
+                   private  val deleteTask: (Task) -> Unit) :
     RecyclerView.Adapter<TaskAdapter.TaskViewHolder>() {
 
     class TaskViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val taskTitle: TextView = view.findViewById(R.id.taskText)
         val taskCheckBox: CheckBox = view.findViewById(R.id.taskCheckBox)
+        val deleteButton: ImageButton = view.findViewById(R.id.deleteButton)
 
     }
 
@@ -37,9 +40,8 @@ class TaskAdapter (private val taskList: MutableList<Task>,
             saveTasks()
         }
 
-        holder.itemView.setOnClickListener {
-            taskList.removeAt(position)
-            notifyItemRemoved(position)
+        holder.deleteButton.setOnClickListener {
+            deleteTask(task)
         }
     }
 

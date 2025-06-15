@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
         val taskInput = findViewById<EditText>(R.id.taskInput)
         val addButton = findViewById<Button>(R.id.addButton)
 
-        taskAdapter = TaskAdapter(taskList, ::saveTasks)
+        taskAdapter = TaskAdapter(taskList, ::saveTasks, ::deleteTask)
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = taskAdapter
 
@@ -62,6 +62,15 @@ class MainActivity : AppCompatActivity() {
             val loadedList: MutableList<Task> = Gson().fromJson(json, type)
             taskList.clear()
             taskList.addAll(loadedList)
+        }
+    }
+
+    private fun deleteTask(task: Task) {
+        val index = taskList.indexOf(task)
+        if (index != -1) {
+            taskList.removeAt(index)
+            taskAdapter.notifyItemRemoved(index)
+            saveTasks()
         }
     }
 }
