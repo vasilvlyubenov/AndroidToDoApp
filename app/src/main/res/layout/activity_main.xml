@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_marginTop="16dp"
     android:orientation="vertical"
     android:padding="14dp"
@@ -25,15 +26,14 @@
             android:minHeight="48dp"
             android:textColor="@color/purple_200" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/addButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@color/black"
-            android:textColor="@color/white"
+            android:layout_weight="0.3"
             android:minHeight="48dp"
-            android:text="@string/add" />
+            android:text="@string/add"
+            app:cornerRadius="12dp" />
 
     </LinearLayout>
 
